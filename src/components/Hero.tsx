@@ -17,7 +17,7 @@ export function Hero() {
         <img 
           src={heroImage} 
           alt="Women in Transport" 
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-right md:object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-twagit-navy/90 via-twagit-navy/70 to-transparent"></div>
       </div>

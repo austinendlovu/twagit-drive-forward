@@ -83,7 +83,7 @@ export function Navbar() {
           <div className="fixed inset-0 bg-black/20 backdrop-blur-sm" onClick={() => setMobileMenuOpen(false)} />
           
           {/* Menu panel */}
-          <div className="fixed inset-x-0 top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 border-b border-border shadow-lg">
+          <div className="fixed right-4 top-4 z-50 max-w-sm w-[90%] bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 border border-border shadow-lg rounded-xl">
             <div className="px-6 py-6">
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-3">
