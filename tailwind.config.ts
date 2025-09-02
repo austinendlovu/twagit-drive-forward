@@ -18,6 +18,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				heading: 'var(--font-heading)',
+				body: 'var(--font-body)',
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -61,7 +65,26 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				twagit: {
+					orange: 'hsl(var(--twagit-orange))',
+					'orange-light': 'hsl(var(--twagit-orange-light))',
+					'orange-dark': 'hsl(var(--twagit-orange-dark))',
+					navy: 'hsl(var(--twagit-navy))',
+					'navy-light': 'hsl(var(--twagit-navy-light))',
 				}
+			},
+			backgroundImage: {
+				'gradient-hero': 'var(--gradient-hero)',
+				'gradient-section': 'var(--gradient-section)',
+				'gradient-dark': 'var(--gradient-dark)',
+			},
+			boxShadow: {
+				orange: 'var(--shadow-orange)',
+				elevated: 'var(--shadow-elevated)',
+			},
+			transitionTimingFunction: {
+				'bounce': 'var(--transition-bounce)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
