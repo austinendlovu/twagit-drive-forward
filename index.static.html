@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TWAGIT</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="public/favicon.ico" />
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+    <header class="navbar">
+      <nav class="navbar-inner container" aria-label="Global">
+        <a href="#home" class="brand">
+          <img src="public/lovable-uploads/f42027b0-23c8-4996-8ec9-d259111bead5.png" alt="TWAGIT Logo">
+          <div>
+            <div class="brand-title">TWAGIT</div>
+            <div class="brand-sub">Tamiranashe Women in Transport</div>
+          </div>
+        </a>
+        <div class="nav-links" id="nav-links">
+          <button onclick="scrollToHash('#home')"><i data-lucide="house"></i> Home</button>
+          <button onclick="scrollToHash('#about')"><i data-lucide="info"></i> About</button>
+          <button onclick="scrollToHash('#programs')"><i data-lucide="book-open"></i> Programs</button>
+          <button onclick="scrollToHash('#get-involved')"><i data-lucide="users"></i> Get Involved</button>
+          <button onclick="scrollToHash('#news')"><i data-lucide="newspaper"></i> News</button>
+          <button onclick="scrollToHash('#contact')"><i data-lucide="mail"></i> Contact</button>
+        </div>
+        <div class="nav-actions">
+          <button class="icon-btn" onclick="toggleTheme()" aria-label="Toggle theme"><span class="theme-icon"><span class="sun">☀</span><span class="moon">🌙</span></span></button>
+          <button class="btn btn-hero" data-scroll="#get-involved">Join Us</button>
+        </div>
+        <div class="nav-mobile">
+          <button class="icon-btn" onclick="toggleTheme()" aria-label="Toggle theme"><span class="theme-icon"><span class="sun">☀</span><span class="moon">🌙</span></span></button>
+          <button class="icon-btn" id="open-menu" aria-label="Open menu">☰</button>
+        </div>
+      </nav>
+    </header>
+
+    <div class="mobile-backdrop hidden" id="menu-backdrop"></div>
+    <div class="mobile-panel hidden" id="menu-panel">
+      <div class="panel-inner">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:1rem;">
+          <div class="brand" style="gap:.5rem">
+            <img src="public/lovable-uploads/f42027b0-23c8-4996-8ec9-d259111bead5.png" alt="TWAGIT" style="height:32px; width:auto;">
+            <div class="brand-title" style="font-size:1rem">TWAGIT</div>
+          </div>
+          <button class="icon-btn" id="close-menu" aria-label="Close menu">✕</button>
+        </div>
+        <div class="mobile-list">
+          <button class="mobile-item" onclick="scrollToHash('#home'); closeMenu()"><i data-lucide="house"></i> Home</button>
+          <button class="mobile-item" onclick="scrollToHash('#about'); closeMenu()"><i data-lucide="info"></i> About</button>
+          <button class="mobile-item" onclick="scrollToHash('#programs'); closeMenu()"><i data-lucide="book-open"></i> Programs</button>
+          <button class="mobile-item" onclick="scrollToHash('#get-involved'); closeMenu()"><i data-lucide="users"></i> Get Involved</button>
+          <button class="mobile-item" onclick="scrollToHash('#news'); closeMenu()"><i data-lucide="newspaper"></i> News</button>
+          <button class="mobile-item" onclick="scrollToHash('#contact'); closeMenu()"><i data-lucide="mail"></i> Contact</button>
+        </div>
+        <div style="margin-top:1rem; padding-top:1rem; border-top:1px solid hsl(var(--border));">
+          <button class="btn btn-hero" data-scroll="#get-involved" style="width:100%">Join Us</button>
+        </div>
+      </div>
+    </div>
+
+    <main class="pt-navbar">
+      <!-- Hero -->
+      <section id="home" class="hero">
+        <div class="hero-bg">
+          <img src="src/assets/twagit-hero.jpg" alt="Women in Transport">
+          <div class="overlay"></div>
+        </div>
+        <div class="hero-content">
+          <div class="container">
+            <div class="hero-grid">
+              <div class="slide-in-up">
+                <div style="margin-bottom:2rem">
+                  <h1>Empowering Women in <span style="color:hsl(var(--primary))">Transport</span></h1>
+                  <p class="lead">Building a Zimbabwe where women are equally represented and empowered in the transport sector through training, mentorship, and advocacy.</p>
+                </div>
+                <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:3rem;">
+                  <button class="btn btn-hero" data-scroll="#get-involved">Join Our Network</button>
+                  <button class="btn btn-secondary" data-scroll="#about">Learn More</button>
+                </div>
+                <div class="quick-stats">
+                  <div class="cell">
+                    <div class="stat-number">500+</div>
+                    <p>Women to Train</p>
+                  </div>
+                  <div class="cell">
+                    <div class="stat-number">100+</div>
+                    <p>Network Goal</p>
+                  </div>
+                  <div class="cell">
+                    <div class="stat-number">2</div>
+                    <p>Year Mission</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="position:absolute; bottom:2.5rem; left:50%; transform:translateX(-50%); color:rgba(255,255,255,.6)" class="float-animation">
+          <div class="text-center">
+            <span style="font-size:.9rem; display:block; margin-bottom:.5rem">Scroll to explore</span>
+            <div style="width:24px; height:40px; border:2px solid rgba(255,255,255,.4); border-radius:999px; display:flex; justify-content:center; margin:0 auto;">
+              <div style="width:4px; height:12px; background:rgba(255,255,255,.4); border-radius:999px; margin-top:.5rem; animation:bounce 1s infinite;"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about" class="section bg-section">
+        <div class="container">
+          <div class="text-center" style="margin-bottom:4rem;">
+            <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(2rem,5vw,3rem); margin:0 0 1rem;">About <span style="color:hsl(var(--primary))">TWAGIT</span></h2>
+            <p class="text-muted" style="font-size:1.125rem; max-width:60ch; margin:0 auto;">Tamiranashe Women in Transport (TWAGIT) is a pioneering organization dedicated to transforming Zimbabwe's transport sector through women's empowerment and leadership.</p>
+          </div>
+          <div class="grid grid-2-md" style="margin-bottom:5rem;">
+            <div class="empowerment-card">
+              <div style="display:flex; align-items:center; margin-bottom:1rem;">
+                <div style="width:32px; height:32px; background:hsl(var(--primary) / .1); color:hsl(var(--primary)); display:flex; align-items:center; justify-content:center; border-radius:8px; margin-right:1rem;">👁️</div>
+                <h3 style="font-family:var(--font-heading); font-size:1.5rem; margin:0;">Our Vision</h3>
+              </div>
+              <p class="text-muted">A Zimbabwe where women are equally represented and empowered in the transport sector, driving innovation and progress across all levels of the industry.</p>
+            </div>
+            <div class="empowerment-card">
+              <div style="display:flex; align-items:center; margin-bottom:1rem;">
+                <div style="width:32px; height:32px; background:hsl(var(--primary) / .1); color:hsl(var(--primary)); display:flex; align-items:center; justify-content:center; border-radius:8px; margin-right:1rem;">🎯</div>
+                <h3 style="font-family:var(--font-heading); font-size:1.5rem; margin:0;">Our Mission</h3>
+              </div>
+              <p class="text-muted">To promote women's participation and leadership in the transport industry, providing them with the necessary skills, support, and opportunities to succeed and excel.</p>
+            </div>
+          </div>
+          <div class="text-center" style="margin-bottom:3rem;">
+            <h3 style="font-family:var(--font-heading); font-size:1.75rem; margin:0 0 .5rem;">Our Core Values</h3>
+            <div class="road-divider" style="width:96px; margin:0 auto 3rem;"></div>
+          </div>
+          <div class="grid values-grid">
+            <div class="empowerment-card text-center"><div class="" style="display:inline-flex; align-items:center; justify-content:center; width:64px; height:64px; background:hsl(var(--primary) / .1); border-radius:999px; margin-bottom:1rem;">👥</div><h4 style="margin:.25rem 0;">Inclusivity</h4><p class="text-muted">Creating spaces where all women feel welcome and valued</p></div>
+            <div class="empowerment-card text-center"><div class="" style="display:inline-flex; align-items:center; justify-content:center; width:64px; height:64px; background:hsl(var(--primary) / .1); border-radius:999px; margin-bottom:1rem;">🛡️</div><h4 style="margin:.25rem 0;">Empowerment</h4><p class="text-muted">Building confidence and providing tools for success</p></div>
+            <div class="empowerment-card text-center"><div class="" style="display:inline-flex; align-items:center; justify-content:center; width:64px; height:64px; background:hsl(var(--primary) / .1); border-radius:999px; margin-bottom:1rem;">❤️</div><h4 style="margin:.25rem 0;">Equality</h4><p class="text-muted">Advocating for fair representation and opportunities</p></div>
+            <div class="empowerment-card text-center"><div class="" style="display:inline-flex; align-items:center; justify-content:center; width:64px; height:64px; background:hsl(var(--primary) / .1); border-radius:999px; margin-bottom:1rem;">👥</div><h4 style="margin:.25rem 0;">Support</h4><p class="text-muted">Providing mentorship and community connections</p></div>
+            <div class="empowerment-card text-center"><div class="" style="display:inline-flex; align-items:center; justify-content:center; width:64px; height:64px; background:hsl(var(--primary) / .1); border-radius:999px; margin-bottom:1rem;">💡</div><h4 style="margin:.25rem 0;">Innovation</h4><p class="text-muted">Embracing new approaches to transform the industry</p></div>
+          </div>
+          <div class="text-center" style="margin-top:4rem;">
+            <p class="text-muted" style="margin-bottom:1rem; font-size:1.125rem;">Join us in building a more inclusive and empowered transport sector in Zimbabwe</p>
+            <div class="road-divider" style="width:192px; margin:0 auto;"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- What We Do -->
+      <section class="section">
+        <div class="container">
+          <div class="text-center" style="margin-bottom:4rem;">
+            <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(2rem,5vw,3rem); margin:0 0 1rem;">What We <span style="color:hsl(var(--primary))">Do</span></h2>
+            <p class="text-muted" style="font-size:1.125rem; max-width:60ch; margin:0 auto;">Our comprehensive approach combines training, mentorship, advocacy, and community building to create lasting change in the transport sector.</p>
+            <div class="road-divider" style="width:96px; margin:2rem auto 0;"></div>
+          </div>
+          <div class="grid grid-2-lg">
+            <div class="empowerment-card slide-in-up">
+              <div style="display:flex;">
+                <div style="flex-shrink:0;">
+                  <div style="width:64px; height:64px; border-radius:12px; background:var(--gradient-hero); display:flex; align-items:center; justify-content:center; color:#fff;">🎓</div>
+                </div>
+                <div style="margin-left:1.5rem; flex:1;">
+                  <h3 style="font-family:var(--font-heading); font-size:1.5rem; margin:0 0 .5rem;">Training & Capacity Building</h3>
+                  <p class="text-muted" style="margin:0 0 1rem;">Comprehensive programs designed to build technical skills, leadership capabilities, and industry knowledge for women in transport.</p>
+                  <ul style="margin:0; padding:0; list-style:none; display:grid; gap:.5rem;">
+                    <li class="text-muted" style="display:flex; align-items:center;"><span style="width:8px; height:8px; border-radius:999px; background:hsl(var(--primary)); margin-right:.75rem;"></span>Technical Skills Development</li>
+                    <li class="text-muted" style="display:flex; align-items:center;"><span style="width:8px; height:8px; border-radius:999px; background:hsl(var(--primary)); margin-right:.75rem;"></span>Leadership Training</li>
+                    <li class="text-muted" style="display:flex; align-items:center;"><span style="width:8px; height:8px; border-radius:999px; background:hsl(var(--primary)); margin-right:.75rem;"></span>Industry Certifications</li>
+                    <li class="text-muted" style="display:flex; align-items:center;"><span style="width:8px; height:8px; border-radius:999px; background:hsl(var(--primary)); margin-right:.75rem;"></span>Professional Development</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="empowerment-card">
+              <div style="display:flex;">
+                <div style="flex-shrink:0;">
+                  <div style="width:64px; height:64px; border-radius:12px; background:var(--gradient-hero); display:flex; align-items:center; justify-content:center; color:#fff;">👥</div>
+                </div>
+                <div style="margin-left:1.5rem; flex:1;">
+                  <h3 style="font-family:var(--font-heading); font-size:1.5rem; margin:0 0 .5rem;">Mentorship & Coaching</h3>
+                  <p class="text-muted" style="margin:0 0 1rem;">Personalized guidance from experienced professionals to support career growth and personal development in the transport sector.</p>
+                  <ul style="margin:0; padding:0; list-style:none; display:grid; gap:.5rem;">
+                    <li class="text-muted" style="display:flex; align-items:center;"><span style="width:8px; height:8px; border-radius:999px; background:hsl(var(--primary)); margin-right:.75rem;"></span>One-on-one Mentoring</li>
+                    <li class="text-muted" style="display:flex; align-items:center;"><span style="width:8px; height:8px; border-radius:999px; background:hsl(var(--primary)); margin-right:.75rem;"></span>Peer Support Groups</li>
+                    <li class="text-muted" style="display:flex; align-items:center;"><span style="width:8px; height:8px; border-radius:999px; background:hsl(var(--primary)); margin-right:.75rem;"></span>Career Guidance</li>
+                    <li class="text-muted" style="display:flex; align-items:center;"><span style="width:8px; height:8px; border-radius:999px; background:hsl(var(--primary)); margin-right:.75rem;"></span>Personal Development</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="empowerment-card">
+              <div style="display:flex;">
+                <div style="flex-shrink:0;">
+                  <div style="width:64px; height:64px; border-radius:12px; background:var(--gradient-hero); display:flex; align-items:center; justify-content:center; color:#fff;">📣</div>
+                </div>
+                <div style="margin-left:1.5rem; flex:1;">
+                  <h3 style="font-family:var(--font-heading); font-size:1.5rem; margin:0 0 .5rem;">Policy Advocacy</h3>
+                  <p class="text-muted" style="margin:0 0 1rem;">Working with government and industry stakeholders to create policies that support women's participation in transport.</p>
+                  <ul style="margin:0; padding:0; list-style:none; display:grid; gap:.5rem;">
+                    <li class="text-muted" style="display:flex; align-items:center;"><span style="width:8px; height:8px; border-radius:999px; background:hsl(var(--primary)); margin-right:.75rem;"></span>Policy Research</li>
+                    <li class="text-muted" style="display:flex; align-items:center;"><span style="width:8px; height:8px; border-radius:999px; background:hsl(var(--primary)); margin-right:.75rem;"></span>Stakeholder Engagement</li>
+                    <li class="text-muted" style="display:flex; align-items:center;"><span style="width:8px; height:8px; border-radius:999px; background:hsl(var(--primary)); margin-right:.75rem;"></span>Legislative Advocacy</li>
+                    <li class="text-muted" style="display:flex; align-items:center;"><span style="width:8px; height:8px; border-radius:999px; background:hsl(var(--primary)); margin-right:.75rem;"></span>Industry Standards</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="empowerment-card">
+              <div style="display:flex;">
+                <div style="flex-shrink:0;">
+                  <div style="width:64px; height:64px; border-radius:12px; background:var(--gradient-hero); display:flex; align-items:center; justify-content:center; color:#fff;">🌐</div>
+                </div>
+                <div style="margin-left:1.5rem; flex:1;">
+                  <h3 style="font-family:var(--font-heading); font-size:1.5rem; margin:0 0 .5rem;">Community Building</h3>
+                  <p class="text-muted" style="margin:0 0 1rem;">Creating strong networks and communities where women can connect, collaborate, and support each other's success.</p>
+                  <ul style="margin:0; padding:0; list-style:none; display:grid; gap:.5rem;">
+                    <li class="text-muted" style="display:flex; align-items:center;"><span style="width:8px; height:8px; border-radius:999px; background:hsl(var(--primary)); margin-right:.75rem;"></span>Professional Networks</li>
+                    <li class="text-muted" style="display:flex; align-items:center;"><span style="width:8px; height:8px; border-radius:999px; background:hsl(var(--primary)); margin-right:.75rem;"></span>Industry Events</li>
+                    <li class="text-muted" style="display:flex; align-items:center;"><span style="width:8px; height:8px; border-radius:999px; background:hsl(var(--primary)); margin-right:.75rem;"></span>Online Communities</li>
+                    <li class="text-muted" style="display:flex; align-items:center;"><span style="width:8px; height:8px; border-radius:999px; background:hsl(var(--primary)); margin-right:.75rem;"></span>Resource Sharing</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text-center" style="margin-top:4rem;">
+            <div class="bg-hero-gradient" style="border-radius:16px; padding:3rem; color:#fff;">
+              <h3 style="font-family:var(--font-heading); font-size:1.75rem; margin:0 0 .5rem;">Ready to Get Started?</h3>
+              <p style="font-size:1.125rem; opacity:.9; margin:0 0 2rem;">Join our community of empowered women transforming Zimbabwe's transport sector</p>
+              <div style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center;">
+                <button class="btn" style="background:#fff; color:hsl(var(--primary)); padding:.75rem 2rem; border-radius:10px;">Explore Programs</button>
+                <button class="btn" style="border:2px solid #fff; color:#fff; padding:.75rem 2rem; border-radius:10px;">Contact Us</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Programs -->
+      <section id="programs" class="section bg-section">
+        <div class="container">
+          <div class="text-center" style="margin-bottom:4rem;">
+            <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(2rem,5vw,3rem); margin:0 0 1rem;">Our <span style="color:hsl(var(--primary))">Programs</span></h2>
+            <p class="text-muted" style="font-size:1.125rem; max-width:60ch; margin:0 auto;">Discover our flagship programs designed to empower women at every stage of their transport career journey.</p>
+            <div class="road-divider" style="width:96px; margin:2rem auto 0;"></div>
+          </div>
+          <div class="grid grid-2-lg" style="margin-bottom:5rem;">
+            <!-- Program 1 -->
+            <div class="empowerment-card">
+              <div style="aspect-ratio:16/9; border-radius:10px; overflow:hidden; margin-bottom:1rem;">
+                <img src="src/assets/mentorship-icon.jpg" alt="Mentorship Program" style="width:100%; height:100%; object-fit:cover; transition:transform .3s;">
+              </div>
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:1rem;">
+                <h3 style="font-family:var(--font-heading); font-size:1.5rem; margin:0;">Mentorship Program</h3>
+                <span class="badge badge-green">Accepting Applications</span>
+              </div>
+              <p class="text-muted" style="margin:0 0 1rem;">Connect with experienced professionals who will guide your career journey in the transport sector.</p>
+              <div class="grid" style="grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; font-size:.95rem; margin-bottom:1rem;">
+                <div>⏱️ <span class="text-muted">6 months</span></div>
+                <div>👥 <span class="text-muted">20 women per cohort</span></div>
+                <div>📆 <span class="text-muted">Monthly 1-on-1 sessions</span></div>
+                <div>📍 <span class="text-muted">Virtual & In-person</span></div>
+              </div>
+              <div style="margin-bottom:1rem;">
+                <h4 style="margin:0 0 .5rem;">Program Features:</h4>
+                <ul style="margin:0; padding:0; list-style:none; display:grid; gap:.5rem;">
+                  <li class="text-muted" style="display:flex; align-items:start;"><span style="width:8px; height:8px; background:hsl(var(--primary)); border-radius:999px; margin:.5rem .75rem 0 0;"></span>Personal career development plan</li>
+                  <li class="text-muted" style="display:flex; align-items:start;"><span style="width:8px; height:8px; background:hsl(var(--primary)); border-radius:999px; margin:.5rem .75rem 0 0;"></span>Industry networking opportunities</li>
+                  <li class="text-muted" style="display:flex; align-items:start;"><span style="width:8px; height:8px; background:hsl(var(--primary)); border-radius:999px; margin:.5rem .75rem 0 0;"></span>Skills assessment and gap analysis</li>
+                  <li class="text-muted" style="display:flex; align-items:start;"><span style="width:8px; height:8px; background:hsl(var(--primary)); border-radius:999px; margin:.5rem .75rem 0 0;"></span>Ongoing support and guidance</li>
+                </ul>
+              </div>
+              <button class="btn btn-hero" style="width:100%">Apply Now</button>
+            </div>
+            <!-- Program 2 -->
+            <div class="empowerment-card">
+              <div style="aspect-ratio:16/9; border-radius:10px; overflow:hidden; margin-bottom:1rem;">
+                <img src="src/assets/training-program.jpg" alt="Training Program" style="width:100%; height:100%; object-fit:cover; transition:transform .3s;">
+              </div>
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:1rem;">
+                <h3 style="font-family:var(--font-heading); font-size:1.5rem; margin:0;">Training Program</h3>
+                <span class="badge badge-blue">Starting February 2024</span>
+              </div>
+              <p class="text-muted" style="margin:0 0 1rem;">Comprehensive training covering technical skills, leadership, and industry knowledge essential for transport careers.</p>
+              <div class="grid" style="grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; font-size:.95rem; margin-bottom:1rem;">
+                <div>⏱️ <span class="text-muted">3 months</span></div>
+                <div>👥 <span class="text-muted">30 women per cohort</span></div>
+                <div>📆 <span class="text-muted">Weekly workshops</span></div>
+                <div>📍 <span class="text-muted">Training Centers across Zimbabwe</span></div>
+              </div>
+              <div style="margin-bottom:1rem;">
+                <h4 style="margin:0 0 .5rem;">Program Features:</h4>
+                <ul style="margin:0; padding:0; list-style:none; display:grid; gap:.5rem;">
+                  <li class="text-muted" style="display:flex; align-items:start;"><span style="width:8px; height:8px; background:hsl(var(--primary)); border-radius:999px; margin:.5rem .75rem 0 0;"></span>Technical skills certification</li>
+                  <li class="text-muted" style="display:flex; align-items:start;"><span style="width:8px; height:8px; background:hsl(var(--primary)); border-radius:999px; margin:.5rem .75rem 0 0;"></span>Leadership development modules</li>
+                  <li class="text-muted" style="display:flex; align-items:start;"><span style="width:8px; height:8px; background:hsl(var(--primary)); border-radius:999px; margin:.5rem .75rem 0 0;"></span>Industry-specific knowledge</li>
+                  <li class="text-muted" style="display:flex; align-items:start;"><span style="width:8px; height:8px; background:hsl(var(--primary)); border-radius:999px; margin:.5rem .75rem 0 0;"></span>Hands-on practical experience</li>
+                </ul>
+              </div>
+              <button class="btn btn-hero" style="width:100%">Get Notified</button>
+            </div>
+          </div>
+
+          <!-- Upcoming Events -->
+          <div>
+            <div class="text-center" style="margin-bottom:3rem;">
+              <h3 style="font-family:var(--font-heading); font-size:1.75rem; margin:0 0 .5rem;">Upcoming Events</h3>
+              <p class="text-muted">Join us at these exciting events and networking opportunities</p>
+            </div>
+            <div class="grid grid-3-lg">
+              <div class="empowerment-card text-center">
+                <div style="display:inline-flex; width:48px; height:48px; background:hsl(var(--primary) / .1); border-radius:12px; align-items:center; justify-content:center; margin-bottom:1rem;">📆</div>
+                <h4 style="margin:.25rem 0;">Women in Transport Summit</h4>
+                <div class="text-muted" style="font-size:.95rem; display:grid; gap:.5rem; margin:.5rem 0 1rem;">
+                  <div>📅 March 15, 2024</div>
+                  <div>📍 Harare International Conference Centre</div>
+                </div>
+                <p class="text-muted" style="margin:0 0 1rem;">Annual gathering of women leaders in Zimbabwe's transport sector</p>
+                <span class="badge" style="background:hsl(var(--primary) / .1); color:hsl(var(--primary));">Conference</span>
+              </div>
+              <div class="empowerment-card text-center">
+                <div style="display:inline-flex; width:48px; height:48px; background:hsl(var(--primary) / .1); border-radius:12px; align-items:center; justify-content:center; margin-bottom:1rem;">📆</div>
+                <h4 style="margin:.25rem 0;">Logistics Skills Workshop</h4>
+                <div class="text-muted" style="font-size:.95rem; display:grid; gap:.5rem; margin:.5rem 0 1rem;">
+                  <div>📅 April 8, 2024</div>
+                  <div>📍 Bulawayo Training Center</div>
+                </div>
+                <p class="text-muted" style="margin:0 0 1rem;">Hands-on training in modern logistics and supply chain management</p>
+                <span class="badge" style="background:hsl(var(--primary) / .1); color:hsl(var(--primary));">Workshop</span>
+              </div>
+              <div class="empowerment-card text-center">
+                <div style="display:inline-flex; width:48px; height:48px; background:hsl(var(--primary) / .1); border-radius:12px; align-items:center; justify-content:center; margin-bottom:1rem;">📆</div>
+                <h4 style="margin:.25rem 0;">Policy Advocacy Roundtable</h4>
+                <div class="text-muted" style="font-size:.95rem; display:grid; gap:.5rem; margin:.5rem 0 1rem;">
+                  <div>📅 May 20, 2024</div>
+                  <div>📍 Virtual Event</div>
+                </div>
+                <p class="text-muted" style="margin:0 0 1rem;">Discussing policy changes to support women in transport</p>
+                <span class="badge" style="background:hsl(var(--primary) / .1); color:hsl(var(--primary));">Roundtable</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stats -->
+      <section id="stats-section" class="section bg-hero-gradient text-white">
+        <div class="container">
+          <div class="text-center" style="margin-bottom:4rem;">
+            <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(2rem,5vw,3rem); margin:0 0 1rem; color:#fff;">Our Goals & <span style="opacity:.9">Objectives</span></h2>
+            <p style="font-size:1.125rem; color:rgba(255,255,255,.8); max-width:60ch; margin:0 auto;">Ambitious targets that drive our mission to transform Zimbabwe's transport sector</p>
+          </div>
+          <div class="grid grid-4-lg">
+            <div class="text-center">
+              <div class="glass" style="padding:2rem;">
+                <div style="display:inline-flex; width:64px; height:64px; background:rgba(255,255,255,.2); border-radius:999px; align-items:center; justify-content:center; margin-bottom:1.25rem;">👥</div>
+                <div class="stat-number" style="color:#fff; margin-bottom:.25rem;" data-count="500">0</div>
+                <h3 style="font-size:1.25rem; margin:.25rem 0;">Women to Train</h3>
+                <p style="color:rgba(255,255,255,.7); font-size:.95rem;">Our goal for the next 2 years</p>
+              </div>
+            </div>
+            <div class="text-center">
+              <div class="glass" style="padding:2rem;">
+                <div style="display:inline-flex; width:64px; height:64px; background:rgba(255,255,255,.2); border-radius:999px; align-items:center; justify-content:center; margin-bottom:1.25rem;">🎯</div>
+                <div class="stat-number" style="color:#fff; margin-bottom:.25rem;" data-count="100">0</div>
+                <h3 style="font-size:1.25rem; margin:.25rem 0;">Network Members</h3>
+                <p style="color:rgba(255,255,255,.7); font-size:.95rem;">Building our community in 1 year</p>
+              </div>
+            </div>
+            <div class="text-center">
+              <div class="glass" style="padding:2rem;">
+                <div style="display:inline-flex; width:64px; height:64px; background:rgba(255,255,255,.2); border-radius:999px; align-items:center; justify-content:center; margin-bottom:1.25rem;">📅</div>
+                <div class="stat-number" style="color:#fff; margin-bottom:.25rem;" data-count="2">0</div>
+                <h3 style="font-size:1.25rem; margin:.25rem 0;">Year Mission</h3>
+                <p style="color:rgba(255,255,255,.7); font-size:.95rem;">Timeline for our impact goals</p>
+              </div>
+            </div>
+            <div class="text-center">
+              <div class="glass" style="padding:2rem;">
+                <div style="display:inline-flex; width:64px; height:64px; background:rgba(255,255,255,.2); border-radius:999px; align-items:center; justify-content:center; margin-bottom:1.25rem;">🏅</div>
+                <div class="stat-number" style="color:#fff; margin-bottom:.25rem;" data-count="4">0</div>
+                <h3 style="font-size:1.25rem; margin:.25rem 0;">Active Programs</h3>
+                <p style="color:rgba(255,255,255,.7); font-size:.95rem;">Comprehensive support initiatives</p>
+              </div>
+            </div>
+          </div>
+          <div class="text-center" style="margin-top:4rem;">
+            <div class="glass" style="padding:2rem; max-width:64rem; margin:0 auto;">
+              <h3 style="font-family:var(--font-heading); font-size:1.5rem; margin:0 0 .5rem; color:#fff;">Making a Measurable Impact</h3>
+              <p style="color:rgba(255,255,255,.8); font-size:1.125rem;">These ambitious targets represent our commitment to creating lasting change in Zimbabwe's transport sector. Through structured programs, strategic partnerships, and community building, we're working towards a future where women are not just participants, but leaders driving innovation and progress in transport.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Get Involved -->
+      <section id="get-involved" class="section">
+        <div class="container">
+          <div class="text-center" style="margin-bottom:4rem;">
+            <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(2rem,5vw,3rem); margin:0 0 1rem;">Get <span style="color:hsl(var(--primary))">Involved</span></h2>
+            <p class="text-muted" style="font-size:1.125rem; max-width:60ch; margin:0 auto;">There are many ways to join our mission of empowering women in Zimbabwe's transport sector. Find the path that's right for you.</p>
+            <div class="road-divider" style="width:96px; margin:2rem auto 0;"></div>
+          </div>
+          <div class="grid grid-3-lg" style="margin-bottom:5rem;">
+            <div class="empowerment-card text-center">
+              <div style="display:inline-flex; width:80px; height:80px; border-radius:999px; background:var(--gradient-hero); color:#fff; align-items:center; justify-content:center; margin-bottom:1rem;">➕</div>
+              <h3 style="font-family:var(--font-heading); font-size:1.5rem; margin:0 0 .5rem;">Become a Member</h3>
+              <p class="text-muted" style="margin:0 0 1rem;">Join our network of empowered women in transport and access exclusive resources, training, and networking opportunities.</p>
+              <div style="margin:0 0 1rem;">
+                <h4 style="margin:0 0 .5rem;">Benefits:</h4>
+                <ul style="margin:0; padding:0; list-style:none; text-align:left; display:grid; gap:.5rem;">
+                  <li class="text-muted" style="display:flex; align-items:start;"><span style="width:8px; height:8px; background:hsl(var(--primary)); border-radius:999px; margin:.5rem .75rem 0 0;"></span>Access to mentorship programs</li>
+                  <li class="text-muted" style="display:flex; align-items:start;"><span style="width:8px; height:8px; background:hsl(var(--primary)); border-radius:999px; margin:.5rem .75rem 0 0;"></span>Priority workshop registration</li>
+                  <li class="text-muted" style="display:flex; align-items:start;"><span style="width:8px; height:8px; background:hsl(var(--primary)); border-radius:999px; margin:.5rem .75rem 0 0;"></span>Industry networking events</li>
+                  <li class="text-muted" style="display:flex; align-items:start;"><span style="width:8px; height:8px; background:hsl(var(--primary)); border-radius:999px; margin:.5rem .75rem 0 0;"></span>Career development resources</li>
+                </ul>
+              </div>
+              <button class="btn btn-hero" style="width:100%">Join Network</button>
+            </div>
+            <div class="empowerment-card text-center">
+              <div style="display:inline-flex; width:80px; height:80px; border-radius:999px; background:var(--gradient-hero); color:#fff; align-items:center; justify-content:center; margin-bottom:1rem;">🤝</div>
+              <h3 style="font-family:var(--font-heading); font-size:1.5rem; margin:0 0 .5rem;">Volunteer with Us</h3>
+              <p class="text-muted" style="margin:0 0 1rem;">Share your expertise and experience by volunteering as a mentor, trainer, or event organizer in our programs.</p>
+              <div style="margin:0 0 1rem;">
+                <h4 style="margin:0 0 .5rem;">Benefits:</h4>
+                <ul style="margin:0; padding:0; list-style:none; text-align:left; display:grid; gap:.5rem;">
+                  <li class="text-muted" style="display:flex; align-items:start;"><span style="width:8px; height:8px; background:hsl(var(--primary)); border-radius:999px; margin:.5rem .75rem 0 0;"></span>Mentor emerging professionals</li>
+                  <li class="text-muted" style="display:flex; align-items:start;"><span style="width:8px; height:8px; background:hsl(var(--primary)); border-radius:999px; margin:.5rem .75rem 0 0;"></span>Lead training workshops</li>
+                  <li class="text-muted" style="display:flex; align-items:start;"><span style="width:8px; height:8px; background:hsl(var(--primary)); border-radius:999px; margin:.5rem .75rem 0 0;"></span>Support event organization</li>
+                  <li class="text-muted" style="display:flex; align-items:start;"><span style="width:8px; height:8px; background:hsl(var(--primary)); border-radius:999px; margin:.5rem .75rem 0 0;"></span>Policy advocacy initiatives</li>
+                </ul>
+              </div>
+              <button class="btn btn-hero" style="width:100%">Start Volunteering</button>
+            </div>
+            <div class="empowerment-card text-center">
+              <div style="display:inline-flex; width:80px; height:80px; border-radius:999px; background:var(--gradient-hero); color:#fff; align-items:center; justify-content:center; margin-bottom:1rem;">❤️</div>
+              <h3 style="font-family:var(--font-heading); font-size:1.5rem; margin:0 0 .5rem;">Support Our Mission</h3>
+              <p class="text-muted" style="margin:0 0 1rem;">Help us expand our reach and impact by supporting our programs through donations or corporate partnerships.</p>
+              <div style="margin:0 0 1rem;">
+                <h4 style="margin:0 0 .5rem;">Benefits:</h4>
+                <ul style="margin:0; padding:0; list-style:none; text-align:left; display:grid; gap:.5rem;">
+                  <li class="text-muted" style="display:flex; align-items:start;"><span style="width:8px; height:8px; background:hsl(var(--primary)); border-radius:999px; margin:.5rem .75rem 0 0;"></span>Fund training programs</li>
+                  <li class="text-muted" style="display:flex; align-items:start;"><span style="width:8px; height:8px; background:hsl(var(--primary)); border-radius:999px; margin:.5rem .75rem 0 0;"></span>Support scholarship recipients</li>
+                  <li class="text-muted" style="display:flex; align-items:start;"><span style="width:8px; height:8px; background:hsl(var(--primary)); border-radius:999px; margin:.5rem .75rem 0 0;"></span>Expand program reach</li>
+                  <li class="text-muted" style="display:flex; align-items:start;"><span style="width:8px; height:8px; background:hsl(var(--primary)); border-radius:999px; margin:.5rem .75rem 0 0;"></span>Enable policy research</li>
+                </ul>
+              </div>
+              <button class="btn btn-hero" style="width:100%">Make a Donation</button>
+            </div>
+          </div>
+
+          <!-- Contact Form (vanilla) -->
+          <div style="max-width:64rem; margin:0 auto;" class="empowerment-card">
+            <div class="text-center" style="margin-bottom:2rem;">
+              <div style="font-size:2rem; color:hsl(var(--primary));">✉️</div>
+              <h3 style="font-family:var(--font-heading); font-size:1.75rem; margin:.5rem 0;">Ready to Get Started?</h3>
+              <p class="text-muted">Fill out the form below and we'll get in touch to discuss how you can join our mission.</p>
+            </div>
+            <form onsubmit="event.preventDefault(); alert('Thank you for your interest! We \'ll get back to you within 48 hours.'); this.reset();" style="display:grid; gap:1.5rem;">
+              <div class="grid grid-2-md">
+                <div>
+                  <label for="name" style="display:block; font-size:.9rem; font-weight:600; margin-bottom:.5rem;">Full Name *</label>
+                  <input id="name" name="name" type="text" required placeholder="Enter your full name">
+                </div>
+                <div>
+                  <label for="email" style="display:block; font-size:.9rem; font-weight:600; margin-bottom:.5rem;">Email Address *</label>
+                  <input id="email" name="email" type="email" required placeholder="Enter your email address">
+                </div>
+              </div>
+              <div>
+                <label for="interest" style="display:block; font-size:.9rem; font-weight:600; margin-bottom:.5rem;">I'm interested in *</label>
+                <select id="interest" name="interest" required>
+                  <option value="">Select your interest</option>
+                  <option value="membership">Becoming a member</option>
+                  <option value="volunteer">Volunteering</option>
+                  <option value="mentorship">Mentorship program</option>
+                  <option value="training">Training programs</option>
+                  <option value="partnership">Corporate partnership</option>
+                  <option value="donation">Making a donation</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div>
+                <label for="message" style="display:block; font-size:.9rem; font-weight:600; margin-bottom:.5rem;">Message</label>
+                <textarea id="message" name="message" rows="4" placeholder="Tell us more about your interest or ask any questions you might have..."></textarea>
+              </div>
+              <div class="text-center">
+                <button type="submit" class="btn btn-hero">Send Message</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="section bg-hero-gradient text-white">
+        <div class="container">
+          <div class="text-center" style="margin-bottom:4rem;">
+            <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(2rem,5vw,3rem); margin:0 0 1rem; color:#fff;">Contact <span style="opacity:.9">Us</span></h2>
+            <p style="font-size:1.125rem; color:rgba(255,255,255,.8); max-width:60ch; margin:0 auto;">Ready to join our mission? Have questions about our programs? We'd love to hear from you.</p>
+          </div>
+          <div class="grid grid-2-lg">
+            <div>
+              <h3 style="font-family:var(--font-heading); font-size:1.5rem; margin:0 0 2rem; color:#fff;">Get in Touch</h3>
+              <div style="display:grid; gap:1rem; margin-bottom:2rem;">
+                <div style="display:flex; align-items:center;">
+                  <div style="width:48px; height:48px; background:rgba(255,255,255,.2); border-radius:12px; display:flex; align-items:center; justify-content:center; margin-right:1rem;">✉️</div>
+                  <div>
+                    <div style="font-weight:600;">Email</div>
+                    <a href="mailto:nancymbauranashe@gmail.com" style="color:rgba(255,255,255,.85); text-decoration:none;">nancymbauranashe@gmail.com</a>
+                  </div>
+                </div>
+                <div style="display:flex; align-items:center;">
+                  <div style="width:48px; height:48px; background:rgba(255,255,255,.2); border-radius:12px; display:flex; align-items:center; justify-content:center; margin-right:1rem;">📞</div>
+                  <div>
+                    <div style="font-weight:600;">Phone</div>
+                    <a href="tel:+263772355070" style="color:rgba(255,255,255,.85); text-decoration:none;">+263 772 355 070</a>
+                  </div>
+                </div>
+                <div style="display:flex; align-items:center;">
+                  <div style="width:48px; height:48px; background:rgba(255,255,255,.2); border-radius:12px; display:flex; align-items:center; justify-content:center; margin-right:1rem;">📍</div>
+                  <div>
+                    <div style="font-weight:600;">Location</div>
+                    <div style="color:rgba(255,255,255,.85);">Zimbabwe</div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h4 style="font-family:var(--font-heading); font-size:1.25rem; margin:0 0 1rem; color:#fff;">Follow Us</h4>
+                <div style="display:flex; gap:1rem;">
+                  <a href="https://twitter.com/TWAGIT" target="_blank" rel="noopener" class="glass" style="width:48px; height:48px; display:flex; align-items:center; justify-content:center;">𝕏</a>
+                  <a href="https://facebook.com/TamiranasheWomenInTransport" target="_blank" rel="noopener" class="glass" style="width:48px; height:48px; display:flex; align-items:center; justify-content:center;">f</a>
+                  <a href="https://linkedin.com/company/tamiranashe-women-in-transport" target="_blank" rel="noopener" class="glass" style="width:48px; height:48px; display:flex; align-items:center; justify-content:center;">in</a>
+                </div>
+              </div>
+            </div>
+            <div class="glass" style="padding:2rem;">
+              <h3 style="font-family:var(--font-heading); font-size:1.5rem; margin:0 0 1rem; color:#fff;">Join the Movement</h3>
+              <p style="color:rgba(255,255,255,.85);">Be part of the change that's transforming Zimbabwe's transport sector. Whether you're looking to advance your career, share your expertise, or support our mission, there's a place for you in the TWAGIT community.</p>
+              <div style="display:grid; gap:.75rem; margin-top:1rem;">
+                <div style="display:flex; align-items:start;"><span style="width:8px; height:8px; background:#fff; border-radius:999px; margin:.5rem .75rem 0 0;"></span><p style="margin:0; color:rgba(255,255,255,.85);">Join our mentorship programs and training initiatives</p></div>
+                <div style="display:flex; align-items:start;"><span style="width:8px; height:8px; background:#fff; border-radius:999px; margin:.5rem .75rem 0 0;"></span><p style="margin:0; color:rgba(255,255,255,.85);">Connect with like-minded professionals in your industry</p></div>
+                <div style="display:flex; align-items:start;"><span style="width:8px; height:8px; background:#fff; border-radius:999px; margin:.5rem .75rem 0 0;"></span><p style="margin:0; color:rgba(255,255,255,.85);">Access exclusive resources and career development opportunities</p></div>
+                <div style="display:flex; align-items:start;"><span style="width:8px; height:8px; background:#fff; border-radius:999px; margin:.5rem .75rem 0 0;"></span><p style="margin:0; color:rgba(255,255,255,.85);">Contribute to policy advocacy and industry transformation</p></div>
+              </div>
+              <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,.2);">
+                <h4 style="margin:0 0 .5rem; color:#fff;">Office Hours</h4>
+                <div style="color:rgba(255,255,255,.85);">
+                  <p style="margin:.25rem 0;">Monday - Friday: 8:00 AM - 5:00 PM</p>
+                  <p style="margin:.25rem 0;">Weekend: By appointment</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div class="container" style="padding:4rem 1rem;">
+        <div class="grid footer-grid">
+          <div>
+            <h3 style="font-family:var(--font-heading); font-size:1.5rem; margin:0 0 1rem;">TWAGIT</h3>
+            <p style="color:rgba(255,255,255,.8);">Empowering women in Zimbabwe's transport sector through training, mentorship, and advocacy.</p>
+            <div style="margin-top:1rem; display:grid; gap:.5rem;">
+              <div>📧 <a href="mailto:nancymbauranashe@gmail.com" style="color:rgba(255,255,255,.85); text-decoration:none;">nancymbauranashe@gmail.com</a></div>
+              <div>📞 <a href="tel:+263772355070" style="color:rgba(255,255,255,.85); text-decoration:none;">+263 772 355 070</a></div>
+            </div>
+          </div>
+          <div>
+            <h4 style="font-family:var(--font-heading); font-size:1.1rem; margin:0 0 1rem;">Quick Links</h4>
+            <ul style="margin:0; padding:0; list-style:none; display:grid; gap:.5rem;">
+              <li><button onclick="scrollToHash('#about')" style="background:none; border:0; color:rgba(255,255,255,.85); cursor:pointer;">About Us</button></li>
+              <li><button onclick="scrollToHash('#programs')" style="background:none; border:0; color:rgba(255,255,255,.85); cursor:pointer;">Programs</button></li>
+              <li><button onclick="scrollToHash('#get-involved')" style="background:none; border:0; color:rgba(255,255,255,.85); cursor:pointer;">Get Involved</button></li>
+              <li><button onclick="scrollToHash('#contact')" style="background:none; border:0; color:rgba(255,255,255,.85); cursor:pointer;">Contact</button></li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="font-family:var(--font-heading); font-size:1.1rem; margin:0 0 1rem;">Our Programs</h4>
+            <ul style="margin:0; padding:0; list-style:none; display:grid; gap:.5rem;">
+              <li><button onclick="scrollToHash('#programs')" style="background:none; border:0; color:rgba(255,255,255,.85); cursor:pointer;">Mentorship Program</button></li>
+              <li><button onclick="scrollToHash('#programs')" style="background:none; border:0; color:rgba(255,255,255,.85); cursor:pointer;">Training Program</button></li>
+              <li><button onclick="scrollToHash('#programs')" style="background:none; border:0; color:rgba(255,255,255,.85); cursor:pointer;">Policy Advocacy</button></li>
+              <li><button onclick="scrollToHash('#programs')" style="background:none; border:0; color:rgba(255,255,255,.85); cursor:pointer;">Community Building</button></li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="font-family:var(--font-heading); font-size:1.1rem; margin:0 0 1rem;">Our Mission</h4>
+            <p style="color:rgba(255,255,255,.8); font-size:.95rem;">To promote women's participation and leadership in the transport industry, providing them with the necessary skills, support, and opportunities to succeed.</p>
+            <div class="glass" style="padding:1rem; margin-top:1rem;">
+              <p style="margin:.25rem 0; font-weight:600;">Vision 2026</p>
+              <p style="margin:.25rem 0; font-size:.85rem; color:rgba(255,255,255,.85);">A Zimbabwe where women are equally represented and empowered in the transport sector.</p>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container" style="display:flex; gap:1rem; align-items:center; justify-content:space-between; flex-wrap:wrap;">
+            <p style="color:rgba(255,255,255,.8); font-size:.95rem;">© 2024 Tamiranashe Women in Transport (TWAGIT). All rights reserved.</p>
+            <div style="display:flex; align-items:center; gap:.5rem; color:rgba(255,255,255,.8);">
+              <span>Made with</span> <span style="color:hsl(var(--primary));">♥</span> <span>for women in transport</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+      const mql = window.matchMedia('(min-width: 768px)');
+      function syncNav(e){
+        const links = document.getElementById('nav-links');
+        const actions = document.querySelector('.nav-actions');
+        const mobile = document.querySelector('.nav-mobile');
+        if(!links || !actions || !mobile) return;
+        links.style.display = e.matches ? 'flex' : 'none';
+        actions.style.display = e.matches ? 'flex' : 'none';
+        mobile.style.display = e.matches ? 'none' : 'flex';
+      }
+      syncNav(mql); mql.addEventListener('change', syncNav);
+    </script>
+  </body>
+</html>
+

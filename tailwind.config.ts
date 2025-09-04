@@ -1,5 +1,3 @@
-import type { Config } from "tailwindcss";
-
 export default {
 	darkMode: ["class"],
 	content: [
@@ -115,5 +113,9 @@ export default {
 			}
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
-} satisfies Config;
+	plugins: [
+		// @ts-expect-error: Importing ESM plugin in TS config
+		// eslint-disable-next-line @typescript-eslint/no-var-requires
+		require("tailwindcss-animate")
+	]
+};
