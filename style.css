@@ -207,6 +207,10 @@ img, video, canvas, svg {
   width: 40px; height: 40px; border-radius: 8px; display: inline-flex; align-items:center; justify-content:center; flex-shrink: 0;
 }
 
+/* Ensure mobile icon contrast for visibility */
+.nav-mobile .icon-btn i { width: 22px; height: 22px; color: #fff; }
+.dark .nav-mobile .icon-btn { background: hsla(0 0% 100% / .08); border-color: hsla(0 0% 100% / .18); }
+
 .nav-mobile .icon-btn { margin-right: 0; }
 
 /* Theme toggle icon swap */
