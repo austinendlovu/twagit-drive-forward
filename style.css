@@ -209,15 +209,7 @@ img, video, canvas, svg {
 
 /* Ensure mobile icon contrast for visibility */
 .nav-mobile .icon-btn i { width: 22px; height: 22px; color: white; }
-/* Stronger background for visibility over varying content */
-.dark .nav-mobile .icon-btn { background: hsla(0 0% 100% / .22); border-color: hsla(0 0% 100% / .28); box-shadow: 0 6px 16px rgba(0,0,0,.35); }
-.nav-mobile .icon-btn:hover { background: hsla(0 0% 100% / .3); transform: translateY(-1px); }
-.nav-mobile .icon-btn:focus-visible { outline: 0; box-shadow: 0 0 0 3px hsla(28 88% 56% / .35), 0 6px 16px rgba(0,0,0,.35); }
-
-/* Match close button styling inside the slide-out panel */
-#close-menu.icon-btn i { width: 20px; height: 20px; color: white; }
-.dark #close-menu.icon-btn { background: hsla(0 0% 100% / .14); border-color: hsla(0 0% 100% / .22); }
-.dark #close-menu.icon-btn:hover { background: hsla(0 0% 100% / .22); }
+.dark .nav-mobile .icon-btn { background: hsla(0 0% 100% / .08); border-color: hsla(0 0% 100% / .18); }
 
 .nav-mobile .icon-btn { margin-right: 0; }
 
