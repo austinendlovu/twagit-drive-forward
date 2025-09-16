@@ -1,24 +1,8 @@
-// Theme management
+// Force dark theme, remove toggle logic
 (function () {
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-  const saved = localStorage.getItem('twagit-ui-theme');
-  function apply(theme) {
-    document.documentElement.classList.toggle('dark', theme === 'dark');
-    localStorage.setItem('twagit-ui-theme', theme);
-  }
-  if (saved === 'light' || saved === 'dark') {
-    apply(saved);
-  } else {
-    apply(prefersDark.matches ? 'dark' : 'light');
-  }
-  prefersDark.addEventListener('change', e => {
-    const stored = localStorage.getItem('twagit-ui-theme');
-    if (!stored) apply(e.matches ? 'dark' : 'light');
-  });
-  window.toggleTheme = function () {
-    const isDark = document.documentElement.classList.contains('dark');
-    apply(isDark ? 'light' : 'dark');
-  };
+  document.documentElement.classList.add('dark');
+  try { localStorage.setItem('twagit-ui-theme', 'dark'); } catch (_) {}
+  window.toggleTheme = function () { /* no-op */ };
 })();
 
 // Smooth scroll
@@ -87,6 +71,31 @@ document.querySelectorAll('[data-scroll]')
 document.addEventListener('DOMContentLoaded', () => {
   if (window.lucide && typeof window.lucide.createIcons === 'function') {
     window.lucide.createIcons();
+  }
+  // Formspree submission with reload on success
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const form = e.currentTarget;
+      const action = form.getAttribute('action');
+      try {
+        const response = await fetch(action, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
+        });
+        if (response.ok) {
+          window.location.reload();
+        } else {
+          // fallback: still reload to clear fields per request
+          window.location.reload();
+        }
+      } catch (_) {
+        // network error: reload to keep behavior consistent
+        window.location.reload();
+      }
+    });
   }
 });
 
