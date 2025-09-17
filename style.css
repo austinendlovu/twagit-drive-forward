@@ -362,3 +362,25 @@ input:focus, select:focus, textarea:focus {
 .badge-blue { background: #dbeafe; color: #1e40af; }
 .dark .badge-green { background: #064e3b33; color: #86efac; }
 .dark .badge-blue { background: #1e3a8a33; color: #93c5fd; }
+
+/* ====== Modal (success dialog) ====== */
+.modal-backdrop {
+  position: fixed; inset: 0; background: rgba(0,0,0,.5); display: none; align-items: center; justify-content: center; z-index: 2000;
+}
+
+.modal-backdrop.open { display: flex; }
+
+.modal {
+  background: hsl(var(--card)); color: hsl(var(--card-foreground)); border-radius: 14px;
+  box-shadow: 0 20px 40px rgba(0,0,0,.2); max-width: 640px; width: calc(100% - 2rem);
+  border: 1px solid hsl(var(--border));
+}
+
+.modal-header { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.25rem; border-bottom: 1px solid hsl(var(--border)); }
+.modal-title { font-family: var(--font-heading); font-weight: 800; font-size: 1.25rem; }
+.modal-body { padding: 1.25rem; color: hsl(var(--muted-foreground)); }
+.modal-actions { padding: 1rem 1.25rem; display: flex; justify-content: center; }
+.modal-close { background: none; border: 0; cursor: pointer; color: hsl(var(--muted-foreground)); }
+.modal-ok {
+  background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); border: 0; border-radius: 10px; padding: .6rem 1.25rem; font-weight: 700; cursor: pointer;
+}

@@ -618,6 +618,22 @@
       </div>
     </footer>
 
+    <!-- Success Modal -->
+    <div class="modal-backdrop" id="success-modal" aria-hidden="true" role="dialog" aria-labelledby="success-title">
+      <div class="modal" role="document">
+        <div class="modal-header">
+          <div class="modal-title" id="success-title">Message Sent!</div>
+          <button class="modal-close" id="success-close" aria-label="Close">✕</button>
+        </div>
+        <div class="modal-body">
+          Thank you for your message. We'll be in touch shortly.
+        </div>
+        <div class="modal-actions">
+          <button class="modal-ok" id="success-ok">OK</button>
+        </div>
+      </div>
+    </div>
+
     <script src="script.js"></script>
     <script>
       const mql = window.matchMedia('(min-width: 768px)');

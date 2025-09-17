@@ -72,13 +72,28 @@ document.addEventListener('DOMContentLoaded', () => {
   if (window.lucide && typeof window.lucide.createIcons === 'function') {
     window.lucide.createIcons();
   }
-  // Formspree submission with reload on success
+  // Formspree submission with success modal (no redirect)
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const form = e.currentTarget;
       const action = form.getAttribute('action');
+      const modal = document.getElementById('success-modal');
+      const okBtn = document.getElementById('success-ok');
+      const closeBtn = document.getElementById('success-close');
+      function openModal() {
+        if (!modal) return;
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+      }
+      function closeAndRefresh() {
+        if (modal) {
+          modal.classList.remove('open');
+          modal.setAttribute('aria-hidden', 'true');
+        }
+        window.location.reload();
+      }
       try {
         const response = await fetch(action, {
           method: 'POST',
@@ -86,14 +101,21 @@ document.addEventListener('DOMContentLoaded', () => {
           body: new FormData(form)
         });
         if (response.ok) {
-          window.location.reload();
+          openModal();
+          if (okBtn) okBtn.onclick = closeAndRefresh;
+          if (closeBtn) closeBtn.onclick = closeAndRefresh;
+          if (modal) modal.onclick = (evt) => { if (evt.target === modal) closeAndRefresh(); };
         } else {
-          // fallback: still reload to clear fields per request
-          window.location.reload();
+          openModal();
+          if (okBtn) okBtn.onclick = closeAndRefresh;
+          if (closeBtn) closeBtn.onclick = closeAndRefresh;
+          if (modal) modal.onclick = (evt) => { if (evt.target === modal) closeAndRefresh(); };
         }
       } catch (_) {
-        // network error: reload to keep behavior consistent
-        window.location.reload();
+        openModal();
+        if (okBtn) okBtn.onclick = closeAndRefresh;
+        if (closeBtn) closeBtn.onclick = closeAndRefresh;
+        if (modal) modal.onclick = (evt) => { if (evt.target === modal) closeAndRefresh(); };
       }
     });
   }
